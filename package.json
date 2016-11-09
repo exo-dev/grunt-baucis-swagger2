@@ -1,0 +1,35 @@
+{
+  "name": "grunt-baucis-swagger2",
+  "description": "The best Grunt plugin ever.",
+  "version": "1.0.0",
+  "homepage": "https://gitlab.com/exo-dev/grunt-baucis-swagger2",
+  "author": {
+    "name": "Agustin Croce",
+    "email": "agustinc@exo.com.ar"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/exo-dev/grunt-baucis-swagger2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/exo-dev/grunt-baucis-swagger2/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/exo-dev/grunt-baucis-swagger2/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "baucis": "^1.6.5",
+    "baucis-swagger2": "exo-dev/baucis-swagger2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.2"
+  }
+}
