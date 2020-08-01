@@ -27,9 +27,9 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "baucis": "^1.6.5",
-    "baucis-swagger2": "exo-dev/baucis-swagger2",
+    "baucis": "^2.0.0",
+    "baucis-swagger2": "git+https:git@github.com/maxiejbe/baucis-swagger2.git",
     "express": "^4.14.0",
-    "mongoose": "^4.6.2"
+    "mongoose": "^5.0.0"
   }
 }
