@@ -1,7 +1,7 @@
 {
-  "name": "grunt-baucis-swagger2",
+  "name": "@exodev/grunt-baucis-swagger2",
   "description": "The best Grunt plugin ever.",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "homepage": "https://gitlab.com/exo-dev/grunt-baucis-swagger2",
   "author": {
     "name": "Agustin Croce",
@@ -31,5 +31,8 @@
     "baucis-swagger2": "exo-dev/baucis-swagger2",
     "express": "^4.14.0",
     "mongoose": ">=5.7.5"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
