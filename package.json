@@ -30,7 +30,7 @@
     "baucis": "^1.6.5",
     "baucis-swagger2": "exo-dev/baucis-swagger2",
     "express": "^4.14.0",
-    "mongoose": ">=5.7.5"
+    "mongoose": ">=6.4.6"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
