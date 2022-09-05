@@ -20,11 +20,8 @@ module.exports = function(grunt) {
     }
 
     const models = require(modelsDir);
-    console.log('llega 0');
     const baucisInstance = buildBaucisInstance(models);
-    console.log('llega 1');
     const swaggerJson = generateSwaggerConfig(baucisInstance);
-    console.log('llega 2');
 
     grunt.file.write(destFile, JSON.stringify(swaggerJson, null, 2), {
       flag: 'wx'
