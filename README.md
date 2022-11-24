@@ -17,16 +17,17 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-baucis-swagger2');
 ```
 
-## The "update_json" task
+## The "baucis_swagger2" task
 
 ### Overview
 In your project's Gruntfile, add a section named `update_json` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  'baucis-swagger2': {
-    your_target: {
-      // Target-specific src and changes go here.
+  baucis_swagger2: {
+    options: {
+      src: '/home/user/mymodelfolder', // absolute path of the mongoose model's folder
+      dest: '/home/user/baucis.json' // absolute path of the output file
     },
   },
 });
@@ -46,11 +47,18 @@ The string of the destination file.
 
 ```js
 grunt.initConfig({
-  update_json: {
+  baucis_swagger2: {
     production:{
-        src: './lib/models',
-        dest: './swagger/baucis.json'
+        src: '/home/user/myproyect/lib/models',
+        dest: '/home/user/myproyect/swagger/baucis.json'
     },
   },
 });
+```
+
+## Development
+
+### Local testing
+```
+npm run test
 ```
