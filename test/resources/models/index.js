@@ -1,8 +1,8 @@
 'use strict';
-const Card = require('./card');
 const Person = require('./person');
+const PersonCard = require('./person-card');
 
 module.exports = {
-    Card,
-    Person
+    Person,
+    PersonCard
 };

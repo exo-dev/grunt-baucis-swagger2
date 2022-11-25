@@ -8,15 +8,16 @@
   "basePath": "/api",
   "tags": [
     {
-      "name": "card",
-      "description": "Card resource.",
+      "name": "Person",
+      "description": "Person resource.",
       "x-resource": true
     },
     {
-      "name": "person",
-      "description": "Person resource.",
+      "name": "PersonCard",
+      "description": "PersonCard resource.",
       "x-resource": true
     }
+
   ],
   "schemes": [
     "http",
@@ -30,328 +31,6 @@
     "text/html"
   ],
   "paths": {
-    "/cards/{id}": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/select"
-        },
-        {
-          "$ref": "#/parameters/populate"
-        },
-        {
-          "$ref": "#/parameters/id"
-        }
-      ],
-      "get": {
-        "responses": {
-          "200": {
-            "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/definitions/Card"
-            }
-          },
-          "404": {
-            "description": "No card was found with that ID.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          "default": {
-            "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        },
-        "operationId": "getCardById",
-        "summary": "Get a card by its unique ID",
-        "description": "Retrieve a card by its ID.",
-        "tags": [
-          "card"
-        ]
-      },
-      "put": {
-        "parameters": [
-          {
-            "$ref": "#/parameters/X-Baucis-Update-Operator"
-          },
-          {
-            "name": "document",
-            "in": "body",
-            "description": "Update a document by sending the paths to be updated in the request body.",
-            "schema": {
-              "$ref": "#/definitions/Card"
-            },
-            "required": true
-          },
-          {
-            "$ref": "#/parameters/select"
-          },
-          {
-            "$ref": "#/parameters/populate"
-          },
-          {
-            "$ref": "#/parameters/id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/definitions/Card"
-            }
-          },
-          "404": {
-            "description": "No card was found with that ID.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          "422": {
-            "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ValidationError"
-              }
-            }
-          },
-          "default": {
-            "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        },
-        "operationId": "updateCard",
-        "summary": "Modify a card by its unique ID",
-        "description": "Update an existing card by its ID.",
-        "tags": [
-          "card"
-        ]
-      },
-      "delete": {
-        "responses": {
-          "200": {
-            "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/definitions/Card"
-            }
-          },
-          "404": {
-            "description": "No card was found with that ID.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          "default": {
-            "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        },
-        "operationId": "deleteCardById",
-        "summary": "Delete a card by its unique ID",
-        "description": "Deletes an existing card by its ID.",
-        "tags": [
-          "card"
-        ]
-      }
-    },
-    "/cards": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/select"
-        },
-        {
-          "$ref": "#/parameters/populate"
-        },
-        {
-          "$ref": "#/parameters/sort"
-        }
-      ],
-      "get": {
-        "parameters": [
-          {
-            "$ref": "#/parameters/count"
-          },
-          {
-            "$ref": "#/parameters/skip"
-          },
-          {
-            "$ref": "#/parameters/limit"
-          },
-          {
-            "$ref": "#/parameters/conditions"
-          },
-          {
-            "$ref": "#/parameters/distinct"
-          },
-          {
-            "$ref": "#/parameters/hint"
-          },
-          {
-            "$ref": "#/parameters/comment"
-          },
-          {
-            "$ref": "#/parameters/select"
-          },
-          {
-            "$ref": "#/parameters/populate"
-          },
-          {
-            "$ref": "#/parameters/sort"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Card"
-              }
-            }
-          },
-          "404": {
-            "description": "No cards matched that query.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          "default": {
-            "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        },
-        "operationId": "queryCard",
-        "summary": "Query some cards",
-        "description": "Query over cards.",
-        "tags": [
-          "card"
-        ]
-      },
-      "post": {
-        "parameters": [
-          {
-            "name": "document",
-            "in": "body",
-            "description": "Create a document by sending the paths to be added in the request body.",
-            "schema": {
-              "$ref": "#/definitions/Card"
-            },
-            "required": true
-          },
-          {
-            "$ref": "#/parameters/select"
-          },
-          {
-            "$ref": "#/parameters/populate"
-          },
-          {
-            "$ref": "#/parameters/sort"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/definitions/Card"
-            }
-          },
-          "404": {
-            "description": "No cards matched that query.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          "422": {
-            "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ValidationError"
-              }
-            }
-          },
-          "default": {
-            "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        },
-        "operationId": "createCard",
-        "summary": "Create some cards",
-        "description": "Create one or more cards.",
-        "tags": [
-          "card"
-        ]
-      },
-      "delete": {
-        "parameters": [
-          {
-            "$ref": "#/parameters/skip"
-          },
-          {
-            "$ref": "#/parameters/limit"
-          },
-          {
-            "$ref": "#/parameters/conditions"
-          },
-          {
-            "$ref": "#/parameters/distinct"
-          },
-          {
-            "$ref": "#/parameters/hint"
-          },
-          {
-            "$ref": "#/parameters/comment"
-          },
-          {
-            "$ref": "#/parameters/select"
-          },
-          {
-            "$ref": "#/parameters/populate"
-          },
-          {
-            "$ref": "#/parameters/sort"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Card"
-              }
-            }
-          },
-          "404": {
-            "description": "No cards matched that query.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          "default": {
-            "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        },
-        "operationId": "deleteCardByQuery",
-        "summary": "Delete some cards by query",
-        "description": "Delete all cards matching the specified query.",
-        "tags": [
-          "card"
-        ]
-      }
-    },
     "/people/{id}": {
       "parameters": [
         {
@@ -373,7 +52,7 @@
             }
           },
           "404": {
-            "description": "No person was found with that ID.",
+            "description": "No Person was found with that ID.",
             "schema": {
               "type": "string"
             }
@@ -386,10 +65,10 @@
           }
         },
         "operationId": "getPersonById",
-        "summary": "Get a person by its unique ID",
-        "description": "Retrieve a person by its ID.",
+        "summary": "Get a Person by its unique ID",
+        "description": "Retrieve a Person by its ID.",
         "tags": [
-          "person"
+          "Person"
         ]
       },
       "put": {
@@ -424,7 +103,7 @@
             }
           },
           "404": {
-            "description": "No person was found with that ID.",
+            "description": "No Person was found with that ID.",
             "schema": {
               "type": "string"
             }
@@ -446,10 +125,10 @@
           }
         },
         "operationId": "updatePerson",
-        "summary": "Modify a person by its unique ID",
-        "description": "Update an existing person by its ID.",
+        "summary": "Modify a Person by its unique ID",
+        "description": "Update an existing Person by its ID.",
         "tags": [
-          "person"
+          "Person"
         ]
       },
       "delete": {
@@ -461,7 +140,7 @@
             }
           },
           "404": {
-            "description": "No person was found with that ID.",
+            "description": "No Person was found with that ID.",
             "schema": {
               "type": "string"
             }
@@ -474,10 +153,10 @@
           }
         },
         "operationId": "deletePersonById",
-        "summary": "Delete a person by its unique ID",
-        "description": "Deletes an existing person by its ID.",
+        "summary": "Delete a Person by its unique ID",
+        "description": "Deletes an existing Person by its ID.",
         "tags": [
-          "person"
+          "Person"
         ]
       }
     },
@@ -553,7 +232,7 @@
         "summary": "Query some people",
         "description": "Query over people.",
         "tags": [
-          "person"
+          "Person"
         ]
       },
       "post": {
@@ -610,7 +289,7 @@
         "summary": "Create some people",
         "description": "Create one or more people.",
         "tags": [
-          "person"
+          "Person"
         ]
       },
       "delete": {
@@ -670,26 +349,347 @@
         "summary": "Delete some people by query",
         "description": "Delete all people matching the specified query.",
         "tags": [
-          "person"
+          "Person"
+        ]
+      }
+    },
+    "/personcards/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/select"
+        },
+        {
+          "$ref": "#/parameters/populate"
+        },
+        {
+          "$ref": "#/parameters/id"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/definitions/PersonCard"
+            }
+          },
+          "404": {
+            "description": "No PersonCard was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "getPersonCardById",
+        "summary": "Get a PersonCard by its unique ID",
+        "description": "Retrieve a PersonCard by its ID.",
+        "tags": [
+          "PersonCard"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/X-Baucis-Update-Operator"
+          },
+          {
+            "name": "document",
+            "in": "body",
+            "description": "Update a document by sending the paths to be updated in the request body.",
+            "schema": {
+              "$ref": "#/definitions/PersonCard"
+            },
+            "required": true
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/populate"
+          },
+          {
+            "$ref": "#/parameters/id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/definitions/PersonCard"
+            }
+          },
+          "404": {
+            "description": "No PersonCard was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "updatePersonCard",
+        "summary": "Modify a PersonCard by its unique ID",
+        "description": "Update an existing PersonCard by its ID.",
+        "tags": [
+          "PersonCard"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/definitions/PersonCard"
+            }
+          },
+          "404": {
+            "description": "No PersonCard was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deletePersonCardById",
+        "summary": "Delete a PersonCard by its unique ID",
+        "description": "Deletes an existing PersonCard by its ID.",
+        "tags": [
+          "PersonCard"
+        ]
+      }
+    },
+    "/personcards": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/select"
+        },
+        {
+          "$ref": "#/parameters/populate"
+        },
+        {
+          "$ref": "#/parameters/sort"
+        }
+      ],
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/count"
+          },
+          {
+            "$ref": "#/parameters/skip"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/conditions"
+          },
+          {
+            "$ref": "#/parameters/distinct"
+          },
+          {
+            "$ref": "#/parameters/hint"
+          },
+          {
+            "$ref": "#/parameters/comment"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/populate"
+          },
+          {
+            "$ref": "#/parameters/sort"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PersonCard"
+              }
+            }
+          },
+          "404": {
+            "description": "No personcards matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "queryPersonCard",
+        "summary": "Query some personcards",
+        "description": "Query over personcards.",
+        "tags": [
+          "PersonCard"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "document",
+            "in": "body",
+            "description": "Create a document by sending the paths to be added in the request body.",
+            "schema": {
+              "$ref": "#/definitions/PersonCard"
+            },
+            "required": true
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/populate"
+          },
+          {
+            "$ref": "#/parameters/sort"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/definitions/PersonCard"
+            }
+          },
+          "404": {
+            "description": "No personcards matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "createPersonCard",
+        "summary": "Create some personcards",
+        "description": "Create one or more personcards.",
+        "tags": [
+          "PersonCard"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/skip"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/conditions"
+          },
+          {
+            "$ref": "#/parameters/distinct"
+          },
+          {
+            "$ref": "#/parameters/hint"
+          },
+          {
+            "$ref": "#/parameters/comment"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/populate"
+          },
+          {
+            "$ref": "#/parameters/sort"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PersonCard"
+              }
+            }
+          },
+          "404": {
+            "description": "No personcards matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deletePersonCardByQuery",
+        "summary": "Delete some personcards by query",
+        "description": "Delete all personcards matching the specified query.",
+        "tags": [
+          "PersonCard"
         ]
       }
     }
   },
   "definitions": {
-    "Card": {
+    "Person": {
       "required": [
-        "number"
+        "dni"
       ],
       "properties": {
-        "person": {
-          "$ref": "#/definitions/Person"
-        },
-        "number": {
+        "fullName": {
           "type": "string"
         },
-        "balance": {
-          "type": "number",
-          "format": "double"
+        "email": {
+          "type": "string"
+        },
+        "dni": {
+          "type": "string"
         },
         "_id": {
           "type": "string"
@@ -754,19 +754,20 @@
         }
       }
     },
-    "Person": {
+    "PersonCard": {
       "required": [
-        "dni"
+        "number"
       ],
       "properties": {
-        "fullName": {
+        "person": {
+          "$ref": "#/definitions/Person"
+        },
+        "number": {
           "type": "string"
         },
-        "email": {
-          "type": "string"
-        },
-        "dni": {
-          "type": "string"
+        "balance": {
+          "type": "number",
+          "format": "double"
         },
         "_id": {
           "type": "string"
