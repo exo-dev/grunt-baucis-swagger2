@@ -20,5 +20,5 @@ const cardSchema = new mongoose.Schema({
     timestamps: true
 });
 
-cardSchema.swaggerName = 'Card';
-module.exports = mongoose.model('Card', cardSchema);
+cardSchema.swaggerName = 'PersonCard';
+module.exports = mongoose.model('PersonCard', cardSchema);

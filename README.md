@@ -48,7 +48,7 @@ The string of the destination file.
 ```js
 grunt.initConfig({
   baucis_swagger2: {
-    production:{
+    options: {
         src: '/home/user/myproyect/lib/models',
         dest: '/home/user/myproyect/swagger/baucis.json'
     },
