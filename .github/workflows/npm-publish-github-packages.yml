@@ -29,12 +29,14 @@ jobs:
           echo "github.event.pull_request.merged  == true  : $MERGED_TRUE_BOOL"
           echo "github.ref == 'refs/heads/master'          : $REF_RAW"
           echo "both                                       : $BOTH"
+          echo "pull request info                          : $PULL_REQUEST_INFO"
         env:
           MERGED_RAW: ${{ github.event.pull_request.merged }}
           MERGED_TRUE_STR: ${{ github.event.pull_request.merged == 'true' }}
           MERGED_TRUE_BOOL: ${{ github.event.pull_request.merged == true }}
           REF_RAW: ${{ github.ref == 'refs/heads/master' }}
           BOTH: ${{ github.ref == 'refs/heads/master' && github.event.pull_request.merged }}
+          PULL_REQUEST_INFO: ${{ toJSON(github.event.pull_request) }}
       - name: Install dependences
         run: npm ci
       - name: Publish package
