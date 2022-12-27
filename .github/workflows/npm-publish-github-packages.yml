@@ -11,7 +11,7 @@ on:
 
 jobs:
   publish-gpr:
-    if: github.ref == 'refs/heads/master' && github.event.pull_request.merged == true
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -22,6 +22,19 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
+      - name: Checking your input
+        run: |
+          echo "github.event.pull_request.merged           : $MERGED_RAW"
+          echo "github.event.pull_request.merged == 'true' : $MERGED_TRUE_STR"
+          echo "github.event.pull_request.merged  == true  : $MERGED_TRUE_BOOL"
+          echo "github.ref == 'refs/heads/master'          : $REF_RAW"
+          echo "both                                       : $BOTH"
+        env:
+          MERGED_RAW: ${{ github.event.pull_request.merged }}
+          MERGED_TRUE_STR: ${{ github.event.pull_request.merged == 'true' }}
+          MERGED_TRUE_BOOL: ${{ github.event.pull_request.merged == true }}
+          REF_RAW: ${{ github.ref == 'refs/heads/master' }}
+          BOTH: ${{ github.ref == 'refs/heads/master' && github.event.pull_request.merged }}
       - name: Install dependences
         run: npm ci
       - name: Publish package
