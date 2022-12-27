@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: echo ${{ github.event }}
+      - run: echo ${{ github.event.pull_request }}
       - name: Install dependences
         run: npm ci
       - name: Publish package
