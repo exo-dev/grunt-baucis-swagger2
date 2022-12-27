@@ -14,8 +14,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-      - run: npm ci
-      - run: npm install --only=dev 
+      - run: npm ci --include dev
 
   test:
     needs: build
