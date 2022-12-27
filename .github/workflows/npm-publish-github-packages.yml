@@ -11,7 +11,7 @@ on:
 
 jobs:
   publish-gpr:
-    if: github.event.pull_request.merged == true && github.ref == 'refs/heads/master'
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -22,6 +22,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
+      - run: echo ${{ github.ref }}
       - name: Install dependences
         run: npm ci
       - name: Publish package
