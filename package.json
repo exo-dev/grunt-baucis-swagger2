@@ -36,8 +36,8 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "baucis": "^2.0.6",
-    "express": "^4.18.1",
+    "baucis": "^2.0.7",
+    "express": "^4.18.2",
     "mongoose": "^5.13.15"
   },
   "publishConfig": {
