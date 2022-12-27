@@ -22,11 +22,6 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - name: Checking your input
-        run: |
-          echo "info : $INFO"
-        env:
-          INFO: ${{ toJSON(github.event) }}
       - name: Install dependences
         run: npm ci
       - name: Publish package
