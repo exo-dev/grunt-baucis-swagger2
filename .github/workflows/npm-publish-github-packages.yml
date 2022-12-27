@@ -7,12 +7,11 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
     types: [ closed ]
 
 jobs:
   publish-gpr:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     permissions:
       contents: read
