@@ -1,7 +1,7 @@
 {
   "name": "@exo-dev/grunt-baucis-swagger2",
   "description": "Generates a swagger.json from baucis router.",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "homepage": "https://gitlab.com/exo-dev/grunt-baucis-swagger2",
   "author": {
     "name": "Agustin Croce",
@@ -44,3 +44,4 @@
     "registry": "https://npm.pkg.github.com"
   }
 }
+
