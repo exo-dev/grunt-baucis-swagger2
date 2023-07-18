@@ -38,7 +38,7 @@
   "dependencies": {
     "baucis": "^2.0.7",
     "express": "^4.18.2",
-    "mongoose": "^5.13.15"
+    "mongoose": "^5.13.20"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
